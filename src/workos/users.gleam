@@ -94,10 +94,7 @@ pub fn list(
 }
 
 /// Fetch a user by id.
-pub fn get(
-  client: client.Client,
-  id: String,
-) -> Result(User, error.Error) {
+pub fn get(client: client.Client, id: String) -> Result(User, error.Error) {
   client.perform(
     client,
     http.Get,

@@ -62,10 +62,7 @@ pub fn decode(body: String) -> Result(Organization, json.DecodeError) {
 pub fn decode_paged(
   body: String,
 ) -> Result(client.Paged(Organization), json.DecodeError) {
-  json.parse(
-    from: body,
-    using: client.paged_decoder(organization_decoder()),
-  )
+  json.parse(from: body, using: client.paged_decoder(organization_decoder()))
 }
 
 /// List organizations, optionally paginated.

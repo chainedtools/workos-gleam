@@ -104,8 +104,7 @@ pub fn perform(
   }
 
   case httpc.send(req) {
-    Ok(resp) ->
-      handle_response(resp.status, resp.body, decoder)
+    Ok(resp) -> handle_response(resp.status, resp.body, decoder)
     Error(_) -> Error(error.NetworkError("HTTP request failed"))
   }
 }

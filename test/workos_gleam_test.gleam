@@ -26,11 +26,9 @@ pub fn build_authorize_url_test() {
     )
 
   sso.authorize_url("https://acme.authkit.app", config)
-  |> should.equal(
-    Ok(
-      "https://acme.authkit.app/sso/authorize?client_id=client_123&redirect_uri=https%3A%2F%2Fapp.example.com%2Fcallback&state=st_abc&provider=GoogleOAuth",
-    ),
-  )
+  |> should.equal(Ok(
+    "https://acme.authkit.app/sso/authorize?client_id=client_123&redirect_uri=https%3A%2F%2Fapp.example.com%2Fcallback&state=st_abc&provider=GoogleOAuth",
+  ))
 }
 
 pub fn authorize_url_rejects_http_domain_test() {
@@ -64,11 +62,9 @@ pub fn authorize_url_trims_trailing_slash_test() {
     )
 
   sso.authorize_url("https://acme.authkit.app/", config)
-  |> should.equal(
-    Ok(
-      "https://acme.authkit.app/sso/authorize?client_id=client_123&redirect_uri=https%3A%2F%2Fapp.example.com%2Fcallback&state=st_abc",
-    ),
-  )
+  |> should.equal(Ok(
+    "https://acme.authkit.app/sso/authorize?client_id=client_123&redirect_uri=https%3A%2F%2Fapp.example.com%2Fcallback&state=st_abc",
+  ))
 }
 
 pub fn parse_callback_success_test() {
